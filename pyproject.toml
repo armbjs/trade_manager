@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "trade_manager"
-version = "1.0.5"
+version = "1.0.6"
 description = ""
 authors = ["armbjs <armbjs@naver.com>"]
 readme = "README.md"
@@ -16,7 +16,7 @@ python-telegram-bot = "13.7"
 redis = "5.2.1"
 requests = "^2.32.3"
 apscheduler = "3.6.3"
-pybit = "5.8.0"
+pybit = "5.7.0"
 python-binance = "1.0.19"
 
 [tool.poetry.dev-dependencies]
