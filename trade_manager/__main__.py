@@ -8,7 +8,13 @@ from telegram import Update
 from telegram.ext import Updater, MessageHandler, Filters, CallbackContext
 import tempfile
 
-from ex_manager import ExManager
+import os
+import sys
+
+# __main__.py의 상위 디렉토리를 sys.path에 추가
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from trade_manager.ex_manager import ExManager
 
 # Telegram Bot Token
 BOT_TOKEN = "7861907626:AAF5wd-CofvkozKCPPv1mZEBWg5Y5sp0L4U"
