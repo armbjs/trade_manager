@@ -24,7 +24,7 @@ jobs:
 
       - name: Build trade_manager Docker Image
         working-directory: ./docker
-        run: docker build . --no-cache --file Dockerfile --tag docker.armbjs.com:5000/trade_manager:1.0.3 --tag docker.armbjs.com:5000/trade_manager:latest --build-arg "PPI_USERNAME=${{ secrets.PPI_USERNAME }}" --build-arg "PPI_PASSWORD=${{ secrets.PPI_PASSWORD }}"
+        run: docker build . --no-cache --file Dockerfile --tag docker.armbjs.com:5000/trade_manager:1.0.4 --tag docker.armbjs.com:5000/trade_manager:latest --build-arg "PPI_USERNAME=${{ secrets.PPI_USERNAME }}" --build-arg "PPI_PASSWORD=${{ secrets.PPI_PASSWORD }}"
 
       - name: Push trade_manager Docker Image
         working-directory: ./docker

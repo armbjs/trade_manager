@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "trade_manager"
-version = "1.0.3"
+version = "1.0.4"
 description = ""
 authors = ["armbjs <armbjs@naver.com>"]
 readme = "README.md"
@@ -8,7 +8,6 @@ packages = [{ include = "trade_manager" },]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-anthropic = "^0.31.2"
 toml = "^0.10.2"
 tomlkit = "^0.13.0"
 pytz = "^2024.1"
