@@ -1,0 +1,31 @@
+name: trade_manager
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set docker for my insecure Docker registry
+        working-directory: ./etc
+        run: sudo cp daemon.json /etc/docker/daemon.json && sudo systemctl daemon-reload && sudo systemctl restart docker
+
+      - name: Login to PDR
+        uses: docker/login-action@v2
+        with:
+          registry: docker.armbjs.com:5000
+          username: ${{ secrets.PDR_USERNAME }}
+          password: ${{ secrets.PDR_PASSWORD }}
+
+      - name: Build trade_manager Docker Image
+        working-directory: ./docker
+        run: docker build . --no-cache --file Dockerfile --tag docker.armbjs.com:5000/trade_manager:1.0.3 --tag docker.armbjs.com:5000/trade_manager:latest --build-arg "PPI_USERNAME=${{ secrets.PPI_USERNAME }}" --build-arg "PPI_PASSWORD=${{ secrets.PPI_PASSWORD }}"
+
+      - name: Push trade_manager Docker Image
+        working-directory: ./docker
+        run: docker push --all-tags docker.armbjs.com:5000/trade_manager

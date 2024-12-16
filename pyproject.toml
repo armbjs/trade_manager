@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "trade_manager"
+version = "1.0.3"
+description = ""
+authors = ["armbjs <armbjs@naver.com>"]
+readme = "README.md"
+packages = [{ include = "trade_manager" },]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+anthropic = "^0.31.2"
+toml = "^0.10.2"
+tomlkit = "^0.13.0"
+pytz = "^2024.1"
+python-dotenv = "^1.0.1"
+python-telegram-bot = "13.7"
+redis = "5.2.1"
+requests = "^2.32.3"
+apscheduler = "3.6.3"
+pybit = "5.8.0"
+python-binance = "1.0.19"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+pylint = "^2.15"
+mypy = "^1.0"
+
+[tool.poetry.scripts]
+patp = "scripts:patp"
+minp = "scripts:minp"
+majp = "scripts:majp"
+type_check = "scripts:type_check"
+test = "scripts:test"
+check_all = "scripts:check_all"
+
+[tool.current-project]
+poetry-publish-enabled = true
+docker-enabled = true
+workflow-enabled = true
+
+[[tool.poetry.source]]
+name = "pdr"
+url = "http://docker.armbjs.com:8080"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
